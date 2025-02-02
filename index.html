@@ -2,31 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yassin's Official Website</title>
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="My Official Website - Experience excellence, top rankings, and the best ever content in every field, forever.">
-  <meta name="keywords" content="Official Website, Rank 1, Best, Top, Forever">
-  <meta name="robots" content="index,follow">
-  <meta name="author" content="Yassin">
-  <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:title" content="My Official Website - Best Ever">
-  <meta property="og:description" content="Welcome to my official website, where excellence meets top rankings in every field.">
-  <meta property="og:image" content="your-image-url.jpg">
-  <meta property="og:url" content="https://yourdomain.com">
-  <meta name="twitter:card" content="summary_large_image">
-  
   <style>
-    /* Styles */
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-    header { background: #333; color: white; padding: 10px 0; text-align: center; }
-    nav ul { list-style: none; padding: 0; }
-    nav ul li { display: inline; margin: 0 10px; }
-    nav ul li a { color: white; text-decoration: none; }
-    section { padding: 20px; text-align: center; }
-    footer { background: #333; color: white; text-align: center; padding: 10px 0; margin-top: 20px; }
-    .admin-login, .admin-section { max-width: 400px; margin: 20px auto; padding: 20px; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    .admin-section { display: none; }
+    /* Basic Reset & Styling */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; line-height: 1.6; }
+    header, footer { background: #333; color: #fff; padding: 10px 20px; }
+    header h1, footer p { margin: 0; }
+    nav ul { list-style: none; }
+    nav ul li { display: inline; margin-right: 15px; }
+    nav ul li a { color: #fff; text-decoration: none; cursor: pointer; }
+    main { padding: 20px; }
+    section { display: none; }
+    section.active { display: block; }
+    .container { max-width: 800px; margin: auto; }
+    /* Login Styles */
+    .login-container, .admin-container { width: 300px; margin: 50px auto; padding: 20px; background: #fff; border: 1px solid #ccc; }
+    .login-container input, .admin-container input, .admin-container textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
+    .login-container button, .admin-container button { width: 100%; padding: 10px; background: #333; color: #fff; border: none; cursor: pointer; }
+    #error-message { color: red; margin-top: 10px; text-align: center; }
+    /* Payment / Service Section */
+    .service-form input, .service-form textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
+    .service-form button { width: 100%; padding: 10px; background: #333; color: #fff; border: none; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -34,92 +31,148 @@
     <h1>Yassin's Official Website</h1>
     <nav>
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a data-target="home">Home</a></li>
+        <li><a data-target="services">Services</a></li>
+        <li><a data-target="contact">Contact</a></li>
+        <li><a data-target="login">Admin Login</a></li>
       </ul>
     </nav>
   </header>
-  
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hi, I'm Yassin. I strive for perfection and aim to lead in Anything Related To Computers.</p>
-  </section>
-  
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <p>Explore my top projects.</p>
-  </section>
-  
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: contact@yassin.com</p>
-  </section>
 
-  <div class="admin-login">
-    <h2>Admin Login</h2>
-    <form id="loginForm">
-        <input type="email" id="adminEmail" placeholder="Enter email" required>
-        <input type="password" id="adminPassword" placeholder="Enter password" required>
-        <button type="submit">Login</button>
-    </form>
-  </div>
+  <main class="container">
+    <!-- Home Section -->
+    <section id="home" class="active">
+      <h2>Welcome!</h2>
+      <p>
+        I am Yassin from Qena, Egypt. I'm 13 years old and crazy about computers. I aim to be a master of everything computer-related and make this website the 1st rank, the best ever, and forever on top of everything!
+      </p>
+      <p>
+        This site is my official platform where I not only showcase my passion but also offer website creation services. Stick around, learn, and maybe even pay for my killer web skills!
+      </p>
+    </section>
 
-  <div class="admin-section" id="adminSection">
-    <h2>Admin Panel</h2>
-    <button id="editBtn">Edit</button>
-    <button id="deleteBtn">Delete</button>
-    <button id="customizeBtn">Customize</button>
-    <button id="addBtn">Add</button>
-    <button id="logoutBtn">Logout</button>
-  </div>
+    <!-- Services Section -->
+    <section id="services">
+      <h2>My Services</h2>
+      <p>
+        I offer custom website creation services. If you need a website that's amazing in every possible way, send your requirements and I'll hit you up with pricing and payment details.
+      </p>
+      <h3>Request a Website</h3>
+      <form class="service-form">
+        <input type="text" id="clientName" placeholder="Your Name" required>
+        <input type="email" id="clientEmail" placeholder="Your Email" required>
+        <textarea id="projectDetails" placeholder="Describe your project..." rows="4" required></textarea>
+        <button type="button" id="submitRequest">Submit Request</button>
+      </form>
+      <p id="requestResponse"></p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>For any inquiries, email me at: <a href="mailto:yassin.com.2011@gmail.com">yassin.com.2011@gmail.com</a></p>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login">
+      <div class="login-container">
+        <h2>Admin Login</h2>
+        <form id="loginForm">
+          <label for="loginEmail">Email:</label>
+          <input type="email" id="loginEmail" placeholder="Enter email" required>
+          <label for="loginPassword">Password:</label>
+          <input type="password" id="loginPassword" placeholder="Enter password" required>
+          <button type="submit">Login</button>
+        </form>
+        <div id="error-message"></div>
+      </div>
+    </section>
+
+    <!-- Admin Section -->
+    <section id="admin">
+      <div class="admin-container">
+        <h2>Admin Panel</h2>
+        <p>Edit the content below and click "Save Changes".</p>
+        <textarea id="contentEditor" rows="8" placeholder="Edit your content here..."></textarea>
+        <button id="saveButton">Save Changes</button>
+        <button id="deleteButton" style="margin-top: 10px; background: darkred;">Delete Saved Content</button>
+        <br><br>
+        <button id="logoutButton" style="background: #555;">Logout</button>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Yassin. All rights reserved.</p>
+    <p>&copy; 2025 Yassin's Official Website | Contact: <a href="mailto:yassin.com.2011@gmail.com" style="color: #fff;">yassin.com.2011@gmail.com</a></p>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const loginForm = document.getElementById('loginForm');
-        const adminSection = document.getElementById('adminSection');
-        const logoutBtn = document.getElementById('logoutBtn');
+    // Navigation logic: Show/hide sections based on clicked nav link
+    document.querySelectorAll('nav ul li a').forEach(link => {
+      link.addEventListener('click', function() {
+        let target = this.getAttribute('data-target');
+        showSection(target);
+      });
+    });
+    function showSection(id) {
+      document.querySelectorAll('main section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
 
-        function checkAdminSession() {
-            if (localStorage.getItem("adminLoggedIn") === "true") {
-                adminSection.style.display = 'block';
-            }
-        }
+    // Admin Login Logic
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = document.getElementById('loginEmail').value;
+      var password = document.getElementById('loginPassword').value;
+      // Hardcoded credentials (insecure, but that's what you asked for)
+      if(email === "yassin.com.2011@gmail.com" && password === "yassin5211708") {
+        showSection('admin');
+      } else {
+        document.getElementById('error-message').innerText = "Invalid credentials. Get it together!";
+      }
+    });
 
-        checkAdminSession();
+    // Admin Panel: Save and Delete Content using localStorage
+    // On page load, load any saved content
+    window.addEventListener('load', function() {
+      var savedContent = localStorage.getItem('siteContent');
+      if (savedContent) {
+        document.getElementById('contentEditor').value = savedContent;
+      }
+    });
+    document.getElementById('saveButton').addEventListener('click', function() {
+      var content = document.getElementById('contentEditor').value;
+      localStorage.setItem('siteContent', content);
+      alert("Changes saved. Now go ahead and dominate the web!");
+    });
+    document.getElementById('deleteButton').addEventListener('click', function() {
+      if(confirm("Are you sure you want to delete the saved content?")) {
+        localStorage.removeItem('siteContent');
+        document.getElementById('contentEditor').value = "";
+        alert("Content deleted.");
+      }
+    });
+    document.getElementById('logoutButton').addEventListener('click', function() {
+      showSection('home');
+    });
 
-        if (loginForm) {
-            loginForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                const email = document.getElementById('adminEmail').value;
-                const password = document.getElementById('adminPassword').value;
-                
-                if (email === 'yassin.com.2011@gmail.com' && password === 'yassin5211708') {
-                    localStorage.setItem("adminLoggedIn", "true");
-                    adminSection.style.display = 'block';
-                    alert('Login successful!');
-                } else {
-                    alert('Invalid credentials!');
-                }
-            });
-        }
-
-        if (logoutBtn) {
-            logoutBtn.addEventListener('click', function() {
-                localStorage.removeItem("adminLoggedIn");
-                adminSection.style.display = 'none';
-                alert('Logged out successfully!');
-            });
-        }
-
-        document.getElementById('editBtn').addEventListener('click', function() { alert('Edit function triggered.'); });
-        document.getElementById('deleteBtn').addEventListener('click', function() { alert('Delete function triggered.'); });
-        document.getElementById('customizeBtn').addEventListener('click', function() { alert('Customize function triggered.'); });
-        document.getElementById('addBtn').addEventListener('click', function() { alert('Add function triggered.'); });
+    // Service Request Form Handling (Mock-up)
+    document.getElementById('submitRequest').addEventListener('click', function() {
+      var name = document.getElementById('clientName').value;
+      var email = document.getElementById('clientEmail').value;
+      var details = document.getElementById('projectDetails').value;
+      if(name && email && details) {
+        // In a real site, this would send an email or post to a server.
+        document.getElementById('requestResponse').innerText = "Request submitted! I will contact you with payment details and pricing.";
+        // Clear the form
+        document.getElementById('clientName').value = "";
+        document.getElementById('clientEmail').value = "";
+        document.getElementById('projectDetails').value = "";
+      } else {
+        document.getElementById('requestResponse').innerText = "Please fill in all fields.";
+      }
     });
   </script>
 </body>
